@@ -24,3 +24,4 @@
     -   [Any 트레잇을 사용해서 JSON 비스무리한 매크로 만들기](./lets_write/json.md)
 -   [번외](./etc/README.md)
     -   [Rust가 C++를 대체할 수 있을까?](./etc/rust_vs_cpp.md)
+-   [비고](./note.md)
