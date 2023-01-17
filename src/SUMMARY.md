@@ -1,7 +1,7 @@
 [들어가기 앞서](./intro.md)
 
 -   [Beginner](./beginner/README.md)
-    -   [클로저(closure)는 항상 새로운 타입인가?](./beginner/closure.md)
+    -   [클로저(closure)의 정체성](./beginner/closure.md)
     -   [constant (상수)와 const fn](./beginner/const.md)
     -   [Default 트레잇](./beginner/default.md)
     -   [Cow<T> 타입](./beginner/cow.md)
@@ -14,7 +14,7 @@
     -   [모나드 bind 함수 구현하기](./intermediate/bind.md)
     -   [?Trait 바운드와 marker 타입](./intermediate/marker.md)
     -   [Any 트레잇과 TypeId](./intermediate/any.md)
-    -   [절차적 매크로, syn, quote, Attribute 만들기](./intermediate/macro.md)
+    -   [절차적 매크로, syn, quote, Attribute](./intermediate/macro.md)
 -   [Advanced](./advanced/README.md)
     -   [Pin과 Unpin](./advanced/pin.md)
     -   [RwLock, 그리고 Mutex의 차이점](./advanced/rwlock.md)
