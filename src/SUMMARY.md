@@ -10,7 +10,7 @@
     -   [#[inline] 속성](./beginner/inline.md)
     -   [&'static T와 T: 'static의 차이점](./beginner/static.md)
 -   [Intermediate](./intermediate/README.md)
-    -   [간편한 함수 오버로딩 구현하기](./intermediate/overloading.md)
+    -   [함수 오버로딩 구현하기](./intermediate/overloading.md)
     -   [모나드 bind 함수 구현하기](./intermediate/bind.md)
     -   [?Trait 바운드와 marker 타입](./intermediate/marker.md)
     -   [Any 트레잇과 TypeId](./intermediate/any.md)
