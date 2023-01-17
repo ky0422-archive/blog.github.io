@@ -6,16 +6,17 @@ on:
             - main
 
 jobs:
-    deploy:
+    build:
+        name: Build, Test and Deploy
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v2
-            - uses: peaceiris/actions-mdbook@v2
+            - uses: actions-rs/toolchain@v1
               with:
-                  mdbook-version: '0.4.10'
-                  mdbook-args: build
-            - uses: peaceiris/actions-gh-pages@v3
+                  toolchain: stable
+            - run: (test -x $HOME/.cargo/bin/mdbook || cargo install --vers "^0.4" mdbook)
+            - run: mdbook build && mdbook test
+            - uses: JamesIves/github-pages-deploy-action@4.1.7
               with:
-                  github_token: ${{ secrets.GITHUB_TOKEN }}
-                  publish_dir: ./book
-                  publish_branch: gh-pages
+                  branch: gh-pages
+                  folder: book
