@@ -1,6 +1,6 @@
 # 들어가기 앞서
 
-해당 Book은 Rust (러스트) 프로그래밍 언어의 중급 이상의 내용을 다루는 문서입니다.
+해당 Book은 Rust (러스트) 프로그래밍 언어의 중급 이상의 내용을 다루는 문서입니다. 이 Book은 가이드가 아닌, 참고 문서입니다. (각 문서는 별개임.)
 
 Rust를 처음 접하는 분들은 [Rust Book](https://doc.rust-lang.org/book/) ([한국어 번역](https://rinthel.github.io/rust-lang-book-ko/))을 먼저 읽어보시기 바랍니다.
 
@@ -25,10 +25,10 @@ Rust를 처음 접하는 분들은 [Rust Book](https://doc.rust-lang.org/book/) 
     -   [`?Trait` 바운드와 marker 타입](./intermediate/marker.md)
     -   [`Any` 트레잇과 `TypeId`](./intermediate/any.md)
     -   [절차적 매크로, `syn`, `quote`, `Attribute` 만들기](./intermediate/macro.md)
+    -   [`for<'a>` (상위 트레잇 바운드 `HRTB`)](./intermediate/for.md)
 -   [Advanced](./advanced/README.md)
     -   [`Pin`과 `Unpin`](./advanced/pin.md)
     -   [`RwLock`, 그리고 `Mutex`의 차이점](./advanced/rwlock.md)
-    -   [`for<'a>` (상위 트레잇 바운드 `HRTB`)](./advanced/for.md)
     -   [`atomic` 타입과 `Ordering` 열거형](./advanced/atomic.md)
 -   [Let's write!](./lets_write/README.md)
     -   [`Any` 트레잇을 사용해서 `JSON` 비스무리한 매크로 만들기](./lets_write/json.md)
