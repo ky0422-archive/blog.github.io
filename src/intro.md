@@ -5,6 +5,7 @@
 Rust를 처음 접하는 분들은 [Rust Book](https://doc.rust-lang.org/book/) ([한국어 번역](https://rinthel.github.io/rust-lang-book-ko/))을 먼저 읽어보시기 바랍니다.
 
 목차는 크게 `Beginner` (초급), `Intermediate` (중급), `Advanced` (고급)으로 나뉘어져 있습니다. `Beginner`는 비교적 쉬운 내용을 다루고 있으며, `Intermediate` 및 `Advanced`는 Rust의 기본적인 내용을 이해하고 있는 분들을 대상으로 합니다.
+또한, `Advanced`는 CS (Computer Science)의 기본적인 내용을 이해하고 있는 분들을 대상으로 합니다.
 
 `Let's write!`는 무언가를 만들어보는 과정입니다. 코드를 복사해도 되지만, 직접 작성해보는 것을 권장합니다.
 
@@ -29,7 +30,8 @@ Rust를 처음 접하는 분들은 [Rust Book](https://doc.rust-lang.org/book/) 
 -   [Advanced](./advanced/README.md)
     -   [`Pin`과 `Unpin`](./advanced/pin.md)
     -   [`RwLock`, 그리고 `Mutex`의 차이점](./advanced/rwlock.md)
-    -   [`atomic` 타입과 `Ordering` 열거형](./advanced/atomic.md)
+    -   [`atomic` 타입과 `Ordering` 열거형 (feat. CPU 명령어 처리)](./advanced/atomic.md)
+    -   [`repr` 속성 (feat. 메모리 정렬)](./advanced/repr.md)
 -   [Let's write!](./lets_write/README.md)
     -   [`Any` 트레잇을 사용해서 `JSON` 비스무리한 매크로 만들기](./lets_write/json.md)
 -   [번외](./etc/README.md)
