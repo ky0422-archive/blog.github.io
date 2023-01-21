@@ -8,5 +8,5 @@
 # 빌드 및 배포
 
 ```console
-$ mdbook build && node deploy.js
+$ source deploy.sh
 ```
