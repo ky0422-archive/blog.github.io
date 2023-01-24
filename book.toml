@@ -1,6 +1,11 @@
 [book]
-title = "중급자를 위한 러스트 잡지식"
+title = "ky0422 블로그"
 authors = ["ky0422"]
+language = "ko"
 
 [output.html]
-git-repository-url = "https://github.com/ky0422/intermediate"
+git-repository-url = "https://github.com/ky0422"
+
+[output.html.playground]
+editable = true
+line-numbers = true
