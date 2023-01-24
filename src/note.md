@@ -6,18 +6,21 @@
 
 ---
 
-빠른 이해를 돕기 위해, 상황에 따라 `fn main() { ..`을 생략합니다. 예를 들어,
+빠른 이해를 돕기 위해, 상황에 따라 일부 코드를 생략합니다. 예를 들어 아래와 같은 코드는
 
 ```rust
+#[derive(Debug)]
+struct Foo(i32, i32);
+
 fn main() {
-    println!("Hello, world!");
+    println!("{:?}", Foo(1, 2));
 }
 ```
 
-는
-
 ```rust
-println!("Hello, world!");
+// 생략
+
+println!("{:?}", Foo(1, 2));
 ```
 
-으로 표기합니다.
+등으로 표시할 수 있습니다.
