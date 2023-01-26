@@ -1,0 +1,354 @@
+<!DOCTYPE HTML>
+<html lang="ko" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Any 트레잇을 사용해서 JSON 매크로 만들어보기 - ky0422 블로그</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../../intro.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded affix "><li class="part-title">Rust</li><li class="chapter-item expanded "><a href="../../rust/intro.html"><strong aria-hidden="true">2.</strong> 들어가기 앞서</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../rust/beginner/index.html"><strong aria-hidden="true">2.1.</strong> Beginner</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../rust/beginner/closure.html"><strong aria-hidden="true">2.1.1.</strong> Closure</a></li><li class="chapter-item expanded "><a href="../../rust/beginner/const.html"><strong aria-hidden="true">2.1.2.</strong> Constant</a></li><li class="chapter-item expanded "><a href="../../rust/beginner/default.html"><strong aria-hidden="true">2.1.3.</strong> Default</a></li><li class="chapter-item expanded "><a href="../../rust/beginner/cow.html"><strong aria-hidden="true">2.1.4.</strong> Cow</a></li><li class="chapter-item expanded "><a href="../../rust/beginner/hash.html"><strong aria-hidden="true">2.1.5.</strong> Hash, Hasher</a></li><li class="chapter-item expanded "><a href="../../rust/beginner/from.html"><strong aria-hidden="true">2.1.6.</strong> From, TryFrom</a></li><li class="chapter-item expanded "><a href="../../rust/beginner/inline.html"><strong aria-hidden="true">2.1.7.</strong> Inline Attribute</a></li><li class="chapter-item expanded "><a href="../../rust/beginner/static.html"><strong aria-hidden="true">2.1.8.</strong> Static Lifetime, Trait Bound</a></li></ol></li><li class="chapter-item expanded "><a href="../../rust/intermediate/index.html"><strong aria-hidden="true">2.2.</strong> Intermediate</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../rust/intermediate/overloading.html"><strong aria-hidden="true">2.2.1.</strong> Function Overloading</a></li><li class="chapter-item expanded "><a href="../../rust/intermediate/bind.html"><strong aria-hidden="true">2.2.2.</strong> Monad Bind</a></li><li class="chapter-item expanded "><a href="../../rust/intermediate/marker.html"><strong aria-hidden="true">2.2.3.</strong> ?Trait, marker</a></li><li class="chapter-item expanded "><a href="../../rust/intermediate/any.html"><strong aria-hidden="true">2.2.4.</strong> Any</a></li><li class="chapter-item expanded "><a href="../../rust/intermediate/macro.html"><strong aria-hidden="true">2.2.5.</strong> Procedural Macro, Attribute</a></li><li class="chapter-item expanded "><a href="../../rust/intermediate/for.html"><strong aria-hidden="true">2.2.6.</strong> HRTB</a></li></ol></li><li class="chapter-item expanded "><a href="../../rust/advanced/index.html"><strong aria-hidden="true">2.3.</strong> Advanced</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../rust/advanced/pin.html"><strong aria-hidden="true">2.3.1.</strong> Pin</a></li><li class="chapter-item expanded "><a href="../../rust/advanced/rwlock.html"><strong aria-hidden="true">2.3.2.</strong> RwLock</a></li><li class="chapter-item expanded "><a href="../../rust/advanced/atomic.html"><strong aria-hidden="true">2.3.3.</strong> Atomic</a></li><li class="chapter-item expanded "><a href="../../rust/advanced/repr.html"><strong aria-hidden="true">2.3.4.</strong> Representation Attribute</a></li></ol></li><li class="chapter-item expanded "><a href="../../rust/lets_write/index.html"><strong aria-hidden="true">2.4.</strong> Let's write!</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../rust/lets_write/json.html" class="active"><strong aria-hidden="true">2.4.1.</strong> Any 트레잇을 사용해서 JSON 매크로 만들어보기</a></li></ol></li><li class="chapter-item expanded "><a href="../../rust/etc/index.html"><strong aria-hidden="true">2.5.</strong> 번외</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../rust/etc/rust_vs_cpp.html"><strong aria-hidden="true">2.5.1.</strong> Rust가 C++를 대체할 수 있을까?</a></li></ol></li></ol></li><li class="chapter-item expanded "><li class="part-title">TypeScript</li><li class="chapter-item expanded "><a href="../../typescript/intro.html"><strong aria-hidden="true">3.</strong> 들어가기 앞서</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="../../note.html"><strong aria-hidden="true">4.</strong> 비고</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">ky0422 블로그</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/ky0422" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <blockquote>
+<p><code>Any</code> 트레잇에 대한 글은 <a href="https://ky0422.tistory.com/15">이곳</a>을 참고해봅시다.</p>
+</blockquote>
+<p><code>HashMap</code>을 쓰던 Rusty한 하루였습니다.</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>HashMap::from([(1, 2), (3, 4)]);
+<span class="boring">}</span></code></pre></pre>
+<p><code>from</code> 함수를 사용해서(또는 <code>.into()</code>) <code>HashMap</code>을 생성할 수 있었습니다.</p>
+<p>해시 맵이 아닌 <code>json</code> (<code>JavaScript Object Notation</code>) 값을 다루려면 <a href="https://github.com/serde-rs/json"><code>serde-rs/json</code></a> 등으로 <code>json</code> 값을 다룰 수 있습니다.</p>
+<p>필자는 단순한 코드를 원하고, 크레이트를 사용하기 원하지 않았죠.
+하지만 러스트에선 자바스크립트 계열 언어(타입스크립트 등)에 존재하는 <code>json</code> 기능이 없습니다.
+(자바스크립트도 원래는 <code>JSON</code>이 기본 기능이 아니긴 했습니다.)</p>
+<p>그래서 만능 매크로를 선언 해보았습니다.</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>macro_rules! json {
+    ($($key:expr =&gt; $value:expr),*) =&gt; {{
+        use std::collections::*;
+
+        let mut map: HashMap&lt;&amp;str, _&gt; = HashMap::new();
+        $(
+            map.insert($key, $value);
+        )*
+
+        map
+    }};
+}
+<span class="boring">}</span></code></pre></pre>
+<p><code>key: value</code> 으로 작성했으면 좋겠지만, 파서의 한계로 <code>=&gt;</code> 를 사용하였습니다.</p>
+<blockquote>
+<p>만약 <code>serde-rs/json</code> 같은 크레이트와 같은 매크로를 선언하고 싶다면, <a href="https://ky0422.tistory.com/20">절차적 매크로를 사용해봅시다.</a></p>
+</blockquote>
+<p>이 매크로는 다음과 같이 사용할 수 있습니다:</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>json! {
+    &quot;a&quot; =&gt; &quot;foo&quot;,
+    &quot;b&quot; =&gt; &quot;bar&quot;,
+    &quot;c&quot; =&gt; &quot;baz&quot;
+};
+<span class="boring">}</span></code></pre></pre>
+<p>사실 <code>json</code>이 아닌 <code>HashMap</code>이긴 합니다.
+그런데 이것은 <strong>심각한</strong> 문제가 있습니다: 매크로에서 <code>value</code> 타입을 <code>&amp;str</code>로 단정 짓는 바람에 다른 타입을 쓸 수 없었습니다:</p>
+<pre><code>json! {
+    &quot;a&quot; =&gt; &quot;foo&quot;,
+    &quot;b&quot; =&gt; &quot;bar&quot;,
+    &quot;c&quot; =&gt; 3 // mismatched types
+};
+</code></pre>
+<h2 id="any"><a class="header" href="#any">Any</a></h2>
+<p>이러면 의미가 없으니, 필자는 <strong><code>Any</code></strong> 트레잇을 사용해보았습니다.
+<code>Any</code> 트레잇은 모든 타입을 받을 수 있습니다. <code>Any</code> 트레잇은 <code>TypeId</code>와 같이 자주 사용되지만, 이 글에선 다루지 않습니다.
+좀 복잡해질 수 도 있기 때문에 <code>json 모듈</code>을 따로 구현해두었습니다.</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>pub mod json {
+    #[macro_export]
+    macro_rules! json {
+        ($($key:expr =&gt; $value:expr),*) =&gt; {{
+            use std::{any::*, collections::*};
+
+            let mut map: HashMap&lt;&amp;str, Box&lt;dyn Any&gt;&gt; = HashMap::new();
+            $(
+                map.insert($key, Box::new($value));
+            )*
+            map
+        }};
+    }
+}
+
+let json = json! {
+    &quot;a&quot; =&gt; 1,
+    &quot;b&quot; =&gt; &quot;qwerty&quot;,
+    &quot;c&quot; =&gt; json! {
+        &quot;d&quot; =&gt; [1, 2, 3]
+    }
+};
+<span class="boring">}</span></code></pre></pre>
+<p>이제 드디어 모든 타입을 받을 수 있게 되었습니다.</p>
+<p><code>Any</code> 트레잇은 컴파일 시간에 크기를 알 수 없기 때문에, <code>Box&lt;T&gt;</code>를 사용하였습니다.
+이제 <code>downcast_ref</code> 또는 <code>downcast_mut</code>으로 값에 접근할 수 있습니다:</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>if let Some(v) = json[&quot;b&quot;].downcast_ref::&lt;&amp;str&gt;() {
+    assert_eq!(*v, &quot;qwerty&quot;);
+}
+<span class="boring">}</span></code></pre></pre>
+<h2 id="값-가져오기"><a class="header" href="#값-가져오기">값 가져오기</a></h2>
+<p>그런데 누가 <code>json</code> 값을 가져오는데 <code>downcast_...</code>같은 복잡한 함수를 쓸까요? 그런건 아무도 안씁니다.
+때문에 <code>get</code> 헬퍼 함수 및 가변 <code>downcast</code> 헬퍼 함수 <code>get_mut</code>을 구현해보았습니다.</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>pub mod json {
+    use std::any::*;
+
+    pub struct JsonValue&lt;T: Any + ?Sized&gt;(pub T);
+
+    impl JsonValue&lt;dyn Any&gt; {
+        pub fn get&lt;T: Any&gt;(&amp;self) -&gt; Option&lt;&amp;T&gt; {
+            self.0.downcast_ref::&lt;T&gt;()
+        }
+
+        pub fn get_mut&lt;T: Any&gt;(&amp;mut self) -&gt; Option&lt;&amp;mut T&gt; {
+            self.0.downcast_mut::&lt;T&gt;()
+        }
+    }
+
+    #[macro_export]
+    macro_rules! json {
+        ($($key:expr =&gt; $value:expr),*) =&gt; {{
+            use std::{any::*, collections::*};
+
+            let mut map: HashMap&lt;&amp;str, Box&lt;JsonValue&lt;dyn Any&gt;&gt;&gt; = HashMap::new();
+            $(
+                map.insert($key, Box::new(JsonValue($value)));
+            )*
+            map
+        }};
+    }
+}
+<span class="boring">}</span></code></pre></pre>
+<p><code>JsonValue</code> 구조체를 정의해주었습니다.
+제네릭 <code>T</code>는 <code>Any</code>를 바운드하였으며, 컴파일 타임에 알 수 없기 때문에 <code>?Sized</code>를 붙여주었습니다.</p>
+<p>코드는 복잡해 보이지만, 한층 더 편리한 러스트 프로그래밍을 할 수 있습니다.</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>use json::*;
+
+let json = json! {
+    &quot;a&quot; =&gt; 1,
+    &quot;b&quot; =&gt; &quot;qwerty&quot;,
+    &quot;c&quot; =&gt; json! {
+        &quot;d&quot; =&gt; [1, 2, 3]
+    }
+};
+
+if let Some(v) = json[&quot;b&quot;].get::&lt;&amp;str&gt;() {
+    assert_eq!(*v, &quot;qwerty&quot;);
+};
+
+if let Some(v) = json.get_mut(&quot;b&quot;) {
+    if let Some(v) = v.get_mut::&lt;&amp;str&gt;() {
+        *v = &quot;foo&quot;;
+
+        assert_eq!(*v, &quot;foo&quot;);
+    }
+};
+<span class="boring">}</span></code></pre></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../rust/lets_write/index.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="../../rust/etc/index.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../rust/lets_write/index.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="../../rust/etc/index.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+        <script>
+            window.playground_line_numbers = true;
+        </script>
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="../../ace.js"></script>
+        <script src="../../editor.js"></script>
+        <script src="../../mode-rust.js"></script>
+        <script src="../../theme-dawn.js"></script>
+        <script src="../../theme-tomorrow_night.js"></script>
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </body>
+</html>
