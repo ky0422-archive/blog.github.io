@@ -1,6 +1,6 @@
 name: CI
 
-on: 
+on:
     push:
         branches:
             - main
@@ -18,4 +18,5 @@ jobs:
             - run: mdbook build
             - uses: rust-lang/simpleinfra/github-actions/static-websites@master
               with:
+                  deploy_dir: book
                   github_token: ${{ secrets.GITHUB_TOKEN }}
